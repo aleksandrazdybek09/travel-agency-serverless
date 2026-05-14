@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Infrastruktura Serverless dla biura podrozy (AWS SAM)
+
+Resources:
+  # 1. Nasza baza danych na oferty (DynamoDB)
+  OffersTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+
+  # 2. Nasza pierwsza funkcja w chmurze (AWS Lambda)
+  GetOffersFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: getOffers.handler
+      Runtime: nodejs20.x
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /offers
+            Method: get
