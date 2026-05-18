@@ -24,3 +24,9 @@ Resources:
           Properties:
             Path: /offers
             Method: get
+
+  # 3. Nasz magazyn na zdjęcia wycieczek (Amazon S3)
+  TourImagesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'travel-agency-images-${AWS::AccountId}'

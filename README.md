@@ -52,3 +52,11 @@ Projekt opiera się na usługach chmury obliczeniowej **Amazon Web Services (AWS
 * Kod źródłowy projektu jest przechowywany w systemie kontroli wersji Git.
 * Zachowano ścisły podział na katalogi `frontend/` oraz `backend/`.
 * W warstwie backendowej wykorzystano plik `template.yaml` (AWS SAM) jako rdzeń deklaratywnego opisu zasobów chmurowych.
+
+## 5. Aktualny stan projektu (Proof of Concept)
+
+Na obecnym etapie w repozytorium przygotowano architektoniczny fundament (tzw. szkielet) aplikacji:
+
+* **Szablon IaC (`template.yaml`):** Zdefiniowano bazę danych `DynamoDB` dla ofert, pierwszą funkcję `Lambda` odpowiedzialną za API oraz zasób `S3 Bucket` na przyszłe pliki multimedialne.
+* **Backend (Mock API):** Zaimplementowano szkielet funkcji Lambda (`getOffers.js`), która zwraca przykładowe dane (mock data) o wycieczkach w formacie JSON, gotowe do konsumpcji przez frontend.
+* **Frontend:** Przygotowano wyjściową strukturę folderów pod aplikację (React).
